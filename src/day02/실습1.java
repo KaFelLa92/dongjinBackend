@@ -47,16 +47,25 @@ package day02;
 
 public class 실습1 {
     public static void main(String[] args) {
+        //1
         System.out.println(25 + "\n홍길동");
 
+
+        //2
         int age = 34;
         System.out.println("저는 " + age + "세 입니다.");
 
+        //3, 4
         String name = "최동진";
         double height = 172.2;
         String motto = "오늘의 나를 이길 것";
         System.out.println("제 이름은 " + name + ". 나이는 " + age + "세. 키는 " + height + "cm. 좌우명은 " + motto + "입니다.");
 
+        //5
+
+        System.out.printf("제 이름은 %s. 나이는 %d세. 키는 %.1fcm. 좌우명은 %s입니다. \n", name, age, height, motto);
+
+        //6
         System.out.println("|\\_/|");
         System.out.println("|q p|   /}");
         System.out.println("( 0 )\"\"\"\\");
@@ -66,8 +75,8 @@ public class 실습1 {
         int num = 1;
         String writer = "유재석";
         String content = "안녕하세요!";
-        System.out.printf("========== 방문록 ===========\n번호   작성자   방문록\n%-6d%-6s%-6s" , num, writer , content);
-        
+        System.out.printf("========== 방문록 ===========\n%-5s%-5s%-6s\n%-6d%-5s%-6s\n============================\n", "번호", "작성자", "방문록", num, writer, content);
+
 
     }
 }
