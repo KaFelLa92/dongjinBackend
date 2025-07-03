@@ -1,5 +1,7 @@
 package day05;  // package(folder) name
 
+import java.util.Scanner;
+
 public class 실습5 {  // class start
     public static void main(String[] args) {    // main start
 /*
@@ -76,15 +78,18 @@ public class 실습5 {  // class start
         출력 예시:
         14 까지 더했을 때 합계가 105 로 100 을 넘습니다.
              */
+
+        /*
         int sum = 0;        // 전역으로 합계 계산할 sum 정수 리터럴 변수 생성
         for (int i = 1; i <= 100; i++) {  // 대충 100까지 세보자
             sum += i;                       // sum은 i를 계속 축적한다
-            if (sum > 100) {
-                break;
+            if (sum > 100) {                // sum 값이 100 넘어가면
+                break;                      // 멈춰!
             }
             // System.out.println(sum);    여기서 sum 출력하면 반복문으로 더하는 값이 나오니
         }
-        System.out.println(sum);
+        System.out.println(sum);            // for문 끝나고 sum 출력하면 100 넘길 때까지 i를 더한 값 나온다
+        */
 
             /*
 [문제 7]중첩 for문을 사용하여 아래와 같이 별 ( *)로 이루어진 직각삼각형을 출력하시오.
@@ -97,14 +102,45 @@ public class 실습5 {  // class start
 
              */
 
+        /*
+        String starGazer = "";    // 별을 더하기 위해 문자열 리터럴 star 변수 생성 * 결국 별이 2개 이상이기 때문에 char 쓰면 안됨 ㅜㅜ
+        for (int i = 0; i <= 4; i++) {   // 다섯 줄
+            starGazer += "*";   // 빈 문자열 starGazer에 "*"문자 적립
+            System.out.println(starGazer);
+        }
+
+         */
+
+        /*
+        // 강사님 풀이
+        for (int line = 1; line <= 5; line++) {
+            for (int star = 1; star <= line; star++) {
+                System.out.print("*");  // 별 * ** *** **** ***** 형식으로 그려가기
+            }// for end
+            System.out.println( );      // line 마다 println. 이스케이프 문자 \n효과.
+        }
+*/
+
+
             /*
 [문제 8]중첩 for문을 사용하여 아래와 같이 별 ( *)로 이루어진 역직각삼각형을 출력하시오.
         출력 예시:
-*****
-****
+*****   (6 - 1)
+****    (6 - 2)
 ***
 **
 *
+*/
+
+        /*
+        String star = "";                       // 별 더할 용도의 빈 문자열 클래스 변수 star
+        for (int i = 1; i <= 5; i++) {          // 5번 출력 담당. i의 숫자에 따라서 별 숫자가 정해지기에 0~4가 아닌 1~5로 처리.
+            for (int s = 1; s <= (6 - i); s++) { // 별찍기 담당, 6에서 출력 담당을 빼면 별 숫자가 나옴.
+                star += "*";                    //  빈 문자열 클래스 변수 star에 * 하나씩 더하기.
+            }
+            star += "\n";                       //  이스케이프 문자열 추가하여 줄바꿈 처리
+        }
+        System.out.println(star);               // for문 바깥에서 출력하면 역순 별 삼각형 완성
 */
 
             /*
@@ -126,6 +162,21 @@ public class 실습5 {  // class start
                 [안내] 프로그램을 종료 합니다.[총 6 회 입력]
              */
 
+        /*
+        Scanner scan = new Scanner(System.in); // 꼭 자동완성해서 java.util.Scanner 임포트 시키기
+        int count = 0;  // 입력횟수 count가 올라가면 다른 출력이 나온다.
+        System.out.println("탈출해보시오.");
+        for (; ; ) {   // 무한루프
+            count += 1; // 무한루프 돌 때(텍스트 입력 할 때)마다 count 1씩 적립
+            String escape = scan.next();    // 문자열 클래스로 탈출 변수 입력
+            if (escape.equals("end")) {     // 입력한 문자열이 end면
+                break;                      // for문 강제 종료
+            }
+        }
+        System.out.println("[안내] 프로그램을 종료합니다. [총 " + count + " 회 입력]");
+*/
+
+
             /*
 [문제 10]아래 선언된 4 개의 변수는 7 월 각 주차별 매출액입니다.각 매출액을 '만원' 단위로 변환하고, 백만원 단위마다 '■' 문자로 시각화하여 아래 출력 예시와 같이 보고서를 출력하시오.
         선언 코드:
@@ -144,6 +195,47 @@ public class 실습5 {  // class start
         4 주차: ■■■■■■■■■■■1173 만원
 */
 
+        /*
+        int july1 = 3532100;
+        int july2 = 9123700;
+        int july3 = 5183400;
+        int july4 = 11738700;
+
+        // 각 int 변수를 10000으로 나눠서 재선언
+        july1 /= 10000;
+        july2 /= 10000;
+        july3 /= 10000;
+        july4 /= 10000;
+        System.out.println(july1);  // 어게이
+
+        // ■ 넣을 문자열 클래스 빈 변수 생성
+        String square = "";
+
+        // 백만원 단위마다 ■ 문자 넣기
+        for (int i = 1; i <= july1 / 100; i++) {    // 1부터 정수 리터럴 변수에 100 나눈 값만큼 반복한다.
+            square = "■";  // july1에 100나눈 값만큼 square 집어넣기
+        }
+        System.out.println(square + july1 + " 만원"); // 출력
+        square = "";    // 초기화
+
+        for (int i = 1; i <= july2 / 100; i++) {
+            square += "■";
+        }
+        System.out.println(square + july2 + " 만원");
+        square = "";
+
+        for (int i = 1; i <= july3 / 100; i++) {
+            square += "■";
+        }
+        System.out.println(square + july3 + " 만원");
+        square = "";
+
+        for (int i = 1; i <= july4 / 100; i++) {
+            square += "■";
+        }
+        System.out.println(square + july4 + " 만원");
+
+         */
 
             /*
                 [문제 11]Scanner와 for (; ; ) 무한루프를 사용하여 간단한 ATM 기기를 만드시오.
@@ -173,6 +265,42 @@ public class 실습5 {  // class start
         프로그램을 종료합니다.
 
              */
+
+        Scanner scan = new Scanner(System.in);
+        int balance = 0; // 정수 리터럴 잔고 변수 생성
+        int money = 0; // 정수 리터럴 보유금 변수 생성
+        for (; ; ) { // 무한루프
+            System.out.print("감사합니다. 더조은은행 ATM 창구입니다.");
+            System.out.println("1: 입금 | 2: 출금 | 3: 잔고 | 4: 종료");
+            int select = scan.nextInt();
+            if (select == 1) {  // 번호에 따른 명령 수행을 if문으로 제작
+                System.out.print("입금 금액을 만 원 단위로 입력하세요: ");
+                money = scan.nextInt() * 10000;
+                balance += money;
+                System.out.println("입금 금액: " + money + "원 입니다.");
+                System.out.println("현재 잔고: " + balance + "원 입니다.");
+
+            }
+            if (select == 2) {
+                System.out.print("출금 금액을 만 원 단위로 입력하세요: ");
+                if (balance <= 0) {
+                    System.out.println("\n출금할 수 있는 금액이 없습니다.");
+                    System.out.println("메인 화면으로 이동합니다.");
+                    continue;
+                } else if (balance > 0) {
+                    money = scan.nextInt() * 10000;
+                    balance -= money;
+                    System.out.println(money + "원 출금하여 잔고는 " + balance + "원 입니다.");
+                }
+            }
+            if (select == 3) {
+                System.out.println("현재 잔고는 " + balance + " 원 입니다.");
+            }
+            if (select == 4) {
+                System.out.println("더조은은행 ATM을 종료합니다.");
+                break;
+            }
+        }
 
 
     }   // main end
