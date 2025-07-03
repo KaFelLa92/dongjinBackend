@@ -63,19 +63,25 @@ public class BoardService { // class start
                 System.out.print("작성자 : ");
                 w3 = scan.nextLine();
                 System.out.println("[안내]글쓰기성공");
-            } else if (select == 1 && c3 != null) {
+            } else if (select == 1 && c3 != null) { // 이렇게 안 쓰려면 select == 1 if문 안에 있는 c1 비교 if문으로 쓰는 게 좋겠다.
                 System.out.println("[경고]게시물을 등록할 공간이 부족합니다.");
             }
-            if (select == 2){
-                System.out.println("================게시물 목록================");
-                System.out.println("내용 : " + c1 + "\n작성자 : " + w1);
-                System.out.println("---------------------------------------");
-                System.out.println("내용 : " + c2 + "\n작성자 : " + w2);
-                System.out.println("---------------------------------------");
-                System.out.println("내용 : " + c3 + "\n작성자 : " + w3);
-                System.out.println("---------------------------------------");
+            if (select == 2) {
+                System.out.println("============== 게시물 목록 ===============");
+                if (c1 != null) {                       // null이 아니면 출력하기
+                    System.out.println("내용 : " + c1 + "\n작성자 : " + w1);
+                    System.out.println("---------------------------------------");
+                }
+                if (c2 != null) {
+                    System.out.println("내용 : " + c2 + "\n작성자 : " + w2);
+                    System.out.println("---------------------------------------");
+                }
+                if (c3 != null) {
+                    System.out.println("내용 : " + c3 + "\n작성자 : " + w3);
+                    System.out.println("---------------------------------------");
+                }
             }
-            if (select == 3){
+            if (select == 3) {
                 System.out.println("=================bye bye=================");
                 break;
             }
