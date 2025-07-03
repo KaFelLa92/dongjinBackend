@@ -270,34 +270,43 @@ public class 실습5 {  // class start
         int balance = 0; // 정수 리터럴 잔고 변수 생성
         int money = 0; // 정수 리터럴 보유금 변수 생성
         for (; ; ) { // 무한루프
-            System.out.print("감사합니다. 더조은은행 ATM 창구입니다.");
+            System.out.println("감사합니다. 더조은은행 ATM 창구입니다.");
             System.out.println("1: 입금 | 2: 출금 | 3: 잔고 | 4: 종료");
+            System.out.println();
             int select = scan.nextInt();
             if (select == 1) {  // 번호에 따른 명령 수행을 if문으로 제작
                 System.out.print("입금 금액을 만 원 단위로 입력하세요: ");
                 money = scan.nextInt() * 10000;
                 balance += money;
-                System.out.println("입금 금액: " + money + "원 입니다.");
-                System.out.println("현재 잔고: " + balance + "원 입니다.");
+                System.out.println();
+                System.out.print("입금 금액: " + money + "원 ");
+                System.out.println("현재 잔고: " + balance + "원");
+                System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
+                System.out.println();
 
             }
             if (select == 2) {
+                System.out.println("현재 출금가능금액: " + balance + " 원");
                 System.out.print("출금 금액을 만 원 단위로 입력하세요: ");
+                System.out.println();
                 if (balance <= 0) {
                     System.out.println("\n출금할 수 있는 금액이 없습니다.");
                     System.out.println("메인 화면으로 이동합니다.");
-                    continue;
                 } else if (balance > 0) {
                     money = scan.nextInt() * 10000;
                     balance -= money;
                     System.out.println(money + "원 출금하여 잔고는 " + balance + "원 입니다.");
+                    System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
+                    System.out.println();
                 }
             }
             if (select == 3) {
                 System.out.println("현재 잔고는 " + balance + " 원 입니다.");
+                System.out.println();
             }
             if (select == 4) {
                 System.out.println("더조은은행 ATM을 종료합니다.");
+                System.out.println();
                 break;
             }
         }

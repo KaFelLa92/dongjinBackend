@@ -70,6 +70,7 @@ public class GPT {  // class s
 
          */
 
+        /*
         // if문 초급 1
         int i1 = 6;
         if (i1 % 2 == 1) {
@@ -93,6 +94,13 @@ public class GPT {  // class s
         int i4 = 9;
         if (i3 > i4){
             System.out.println("더");
+        }
+*/
+
+        for (int d = 2; d <= 9; d++) {
+            for (int g = 1; g <= 9; g++) {
+                System.out.println(d + "x" + g + "=" + d*g );
+            }
         }
 
 
