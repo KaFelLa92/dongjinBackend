@@ -268,10 +268,12 @@ public class 실습5 {  // class start
 
         Scanner scan = new Scanner(System.in);
         int balance = 0; // 정수 리터럴 잔고 변수 생성
-        int money = 0; // 정수 리터럴 보유금 변수 생성
+        int money = 0; // 정수 리터럴 입력금액 변수 생성
         for (; ; ) { // 무한루프
+            System.out.println("----------------------------------");
             System.out.println("감사합니다. 더조은은행 ATM 창구입니다.");
             System.out.println("1: 입금 | 2: 출금 | 3: 잔고 | 4: 종료");
+            System.out.println("----------------------------------");
             System.out.println();
             int select = scan.nextInt();
             if (select == 1) {  // 번호에 따른 명령 수행을 if문으로 제작
@@ -316,6 +318,8 @@ public class 실습5 {  // class start
                 break;
             }
         }
+        
+        // 배열로 balance 만들면 여러 명을 위한 은행계좌창구 개설 가능
 
 
     }   // main end
