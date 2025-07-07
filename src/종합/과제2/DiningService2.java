@@ -1,14 +1,16 @@
 package 종합.과제2; // package name
 
+import java.util.Scanner;
+
 public class DiningService2 {   // class s
     public static void main(String[] args) { // main s
 
         /*
         [ 제출방법 ] 코드가 작성된 파일이 위치한 깃허브 상세 주소를 제출하시오.
 
-[JAVA] 종합과제2 : 식당 대기번호 프로그램 ( 배열과 객체 활용 )
-                [ 참고 ] 종합예제3 참고 하시오.
-[ 목표 ] 종합과제1 에서 배열과 객체 문법 추가하여 , 최대 100개의 대기 명단을 관리할 수 있는 간단한 식당 대기번호 발행 프로그램을 구현합니다.
+        [JAVA] 종합과제2 : 식당 대기번호 프로그램 ( 배열과 객체 활용 )
+        [ 참고 ] 종합예제3 참고 하시오.
+        [ 목표 ] 종합과제1 에서 배열과 객체 문법 추가하여 , 최대 100개의 대기 명단을 관리할 수 있는 간단한 식당 대기번호 발행 프로그램을 구현합니다.
 */
 
         /*
@@ -33,6 +35,62 @@ public class DiningService2 {   // class s
 
          */
 
+        // 1. 클래스 Waiting 생성하고 , call과 count 속성 넣기
+
+        // 2. 배열 변수 생성하여 저장공간 100개 만들기(초기화는 String null, int 0)
+        Waiting[] waitings = new Waiting[100];
+
+        // 대기 등록과 대기 등록 실패를 분별할 불리언 변수 생성
+        boolean check = false;
+
+        // 스캐너 임포트
+        Scanner scan = new Scanner(System.in);
+
+        // 3. for( ; ;)문 무한루프
+        for (; ; ) {
+            System.out.println("=========== 맛집 대기 시스템 ===========");
+            System.out.println("               1.대기 등록 | 2.대기 현황");
+            System.out.println("=====================================");
+            int select = scan.nextInt();
+            if (select == 1) {
+                scan.nextLine();
+                System.out.println("전화번호 : ");
+                String call = scan.nextLine();
+                System.out.println("인원 수 : ");
+                int count = scan.nextInt();
+                // 객체 생성 후 입력받은 개별 값을 대입 -> 나중에 배열 변수로 합칠 거임
+                Waiting wait = new Waiting();
+                wait.call = call;
+                wait.count = count;
+                // 배열에 넣기
+                for (int i = 0; i <= waitings.length - 1; i++) {
+                    if (waitings[i] == null) { // i번째 요소가 비어있다면
+                        waitings[i] = wait; // 입력받았던 call과 count를 전부 대입
+                        check = true; // 등록 가능하면 true 체크
+                        break; // 반복문 종료
+                    }
+                }
+
+                if (check) { // 등록 했으면 완료 메시지 띄우기
+                    System.out.println("[안내] 대기 등록이 완료되었습니다.");
+                } else { // 등록 못했으면 경고 메시지 띄우기
+                    System.out.println("[경고] 더 이상 대기 등록을 할 수 없습니다.");
+                }
+
+            }
+
+            if (select == 2) {
+                System.out.println("============= 대기 현황 =============");
+                for (int i = 0; i <= waitings.length - 1; i++) {
+                    Waiting wait = waitings[i]; // wait는 waitings의 인덱스값. call과 count 포함
+                    if (wait != null) {   // 비어있지 않을 경우
+                        System.out.println(i+1 + ". 연락처: " + wait.call + " 인원: " + wait.count + "명");
+                    }
+                }
+                System.out.println("------------------------------------");
+            }
+
+        }   // muhan end
 
         /*
 [ 실행 예시 ]
@@ -73,3 +131,8 @@ public class DiningService2 {   // class s
 
     }   // main e
 }   // class e
+
+class Waiting {
+    String call;
+    int count;
+}
