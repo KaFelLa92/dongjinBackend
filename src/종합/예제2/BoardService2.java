@@ -2,7 +2,7 @@ package 종합.예제2; // package name
 
 import java.util.Scanner;
 
-public class boardService2 { // class start
+public class BoardService2 { // class start
     public static void main(String[] args) { // main start
 
         /*
