@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class BoardService3 { // class s
     public static void main(String[] args) { // main s
+        // 입출력 담당
+        
         /*
         [JAVA] 종합예제3 : boardService3 (객체 활용)
                 [ 목표 ] 종합예제2 에서 객체 문법 추가하여 , 최대 100개의 게시물을 저장하고 조회할 수 있는 간단한 콘솔 게시판 프로그램을 구현합니다.
