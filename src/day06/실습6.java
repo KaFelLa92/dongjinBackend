@@ -219,14 +219,14 @@ public class 실습6 {  // class start
         931나8234: 420분 주차, 최종 요금: 20000원
 */
 
-        String[] carNumbers = {"210어7125", "142가7415", "888호8888", "931나8234"};
-        int[] usageMinutes = {65, 30, 140, 420};
+        String[] carNumbers = {"210어7125", "142가7415", "888호8888", "931나8234"};     // String 끼리
+        int[] usageMinutes = {65, 30, 140, 420};                                      // int 끼리
 
 
-        for (int i = 0; i <= carNumbers.length - 1; i++) {  // 차 번호 for문
+        for (int i = 0; i <= carNumbers.length - 1; i++) {  // 차 번호 for문 , 배열 길이가 같으므로 넘버, 미닛 다 적용 가능.
             System.out.print(carNumbers[i] + " : ");
-            int minute = usageMinutes[i];       // 인덱스를 분 정수 변수로 치환
-            int charge = 0;                 // 기본 30분 요금 내야할 비용 책정
+            int minute = usageMinutes[i];       // 사용시간 [인덱스]를 분 단위 정수 변수로 치환
+            int charge = 0;                     // 요금 비용 책정
             if (minute <= 30) {
                 charge = 1000;
             } else if (minute > 30) {
@@ -234,9 +234,8 @@ public class 실습6 {  // class start
             }
 
             if (charge >= 20000) {      // 차지 2만원 넘는거 따로 계산
-                charge = 20000;
+                charge = 20000;         // 2만원 넘으면 2만원이야
             }
-
 
             System.out.println(minute + "분 주차, 최종 요금: " + charge + "원");
 

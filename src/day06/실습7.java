@@ -202,11 +202,14 @@ public class 실습7 {  // class start
 
         if (menu1.isSignature == true) {
             System.out.println("[대표메뉴] [메뉴이름] : " + menu1.name + "[가격]" + menu1.price + "원");
-        } else if (menu2.isSignature == true) {
+        }
+        if (menu2.isSignature == true) {
             System.out.println("[대표메뉴] [메뉴이름] : " + menu2.name + "[가격]" + menu2.price + "원");
-        } else if (menu3.isSignature == true) {
+        }
+        if (menu3.isSignature == true) {
             System.out.println("[대표메뉴] [메뉴이름] : " + menu3.name + "[가격]" + menu3.price + "원");
-        } else {
+        }
+        if (menu1.isSignature == false && menu2.isSignature == false && menu3.isSignature == false ) {
             System.out.println("시그니처가 없는 식당입니다.");
         }
 
@@ -219,21 +222,35 @@ public class 실습7 {  // class start
 */
 
         Scanner scan = new Scanner(System.in);
+        System.out.println("첫 번째 멤버의 이름, 나이, MBTI를 순서대로 입력하세요.");
+        String name1 = scan.next();
+        int age1 = scan.nextInt();
+        String mbti1 = scan.next();
+
+        System.out.println("두 번째 멤버의 이름, 나이, MBTI를 순서대로 입력하세요.");
+        String name2 = scan.next();
+        int age2 = scan.nextInt();
+        String mbti2 = scan.next();
+
+        System.out.println("세 번째 멤버의 이름, 나이, MBTI를 순서대로 입력하세요.");
+        String name3 = scan.next();
+        int age3 = scan.nextInt();
+        String mbti3 = scan.next();
 
         UserProfile u1 = new UserProfile();
-        u1.name = "유재슥";
-        u1.age = 42;
-        u1.mbti = "ENFJ";
+        u1.name = name1;
+        u1.age = age1;
+        u1.mbti = mbti1;
 
         UserProfile u2 = new UserProfile();
-        u2.name = "강호돈";
-        u2.age = 45;
-        u2.mbti = "ENFP";
+        u2.name = name2;
+        u2.age = age2;
+        u2.mbti = mbti2;
 
         UserProfile u3 = new UserProfile();
-        u3.name = "신동업";
-        u3.age = 41;
-        u3.mbti = "ESFJ";
+        u3.name = name3;
+        u3.age = age3;
+        u3.mbti = mbti3;
 
 
         System.out.println("--- 프로필 ---");
