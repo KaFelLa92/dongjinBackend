@@ -7,7 +7,7 @@ public class Visualizer {
     // 메소드
     int getStars(int a) {
         for (int i = 1; i <= a; i++ ){
-            String star = "★";
+            char star = '★';
             System.out.print(star);
         }
         System.out.println();
