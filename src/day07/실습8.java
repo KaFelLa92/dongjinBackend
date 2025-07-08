@@ -110,7 +110,7 @@ public class 실습8 {
          */
 
         ParkingLot fee = new ParkingLot();
-        int charge1 = fee.calculateFee(100000000);
+        int charge = fee.calculateFee(100000000);
 
 
 
