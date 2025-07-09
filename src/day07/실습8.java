@@ -97,6 +97,10 @@ public class 실습8 {
         Visualizer star = new Visualizer();
         int stars = star.getStars(5);
 
+        // 강사님 풀이법
+        Visualizer2 star2 = new Visualizer2();
+        String stars2 = star2.getstars2(5);
+        System.out.println(stars2);
 
         /*
 [문제 8] ParkingLot 클래스를 만드세요.
@@ -110,8 +114,8 @@ public class 실습8 {
          */
 
         ParkingLot fee = new ParkingLot();
-        int charge = fee.calculateFee(100000000);
-
+        int charge1 = fee.calculateFee(100000000);
+        int charge2 = fee.calculateFee(65);
 
 
 

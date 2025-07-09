@@ -6,6 +6,8 @@ public class ParkingLot {
 
     // 메소드 정의
     int calculateFee(int m) { // 매개변수는 minute의 m
+        System.out.println("주차 계산시간입니다.");
+        System.out.println("사용하신 주차 시간은 " + m + "분입니다.");
         int charge = 0;         // 금액 정수 0
         if (m <= 30) {  // 30분까지 천원
             charge = 1000;

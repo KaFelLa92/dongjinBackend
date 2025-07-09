@@ -6,7 +6,7 @@ public class Visualizer {
 
     // 메소드
     int getStars(int a) {
-        for (int i = 1; i <= a; i++ ){
+        for (int i = 1; i <= a; i++) {
             char star = '★';
             System.out.print(star);
         }
@@ -14,3 +14,15 @@ public class Visualizer {
         return a;
     }
 }// class e
+
+// 강사님 풀이법
+
+class Visualizer2 {
+    String getstars2(int s) {
+        String stars = "";
+        for (int i = 1; i <= s; i++){
+            stars += "★";
+        }
+        return stars;
+    }
+}
