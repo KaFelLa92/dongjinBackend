@@ -1,5 +1,7 @@
 package 심화.과제1;
 
+import java.util.Scanner;
+
 public class BankService {
     public static void main(String[] args) {
 
@@ -12,12 +14,70 @@ public class BankService {
 
      */
 
+        // 선택하려면? 스캐너 임포트
+        Scanner scan = new Scanner(System.in);
+
+        // 컨트롤러 객체 생성
+        BankController bs = new BankController();
+
         // for 무한루프
         for (; ; ) {
             System.out.println("============== KB Bank  ==============");
             System.out.println("1. 계좌등록 | 2. 입금 | 3. 출금 | 4. 잔고확인");
             System.out.println("======================================");
+            //
+            int select = scan.nextInt();
+            // 1번 선택
+            if (select == 1) {
+                scan.nextLine();    // 버그 방지용
+                System.out.println("--- 계좌 등록 ---");
+                System.out.print("계좌번호 : ");
+                String accountNum = scan.next();
+                System.out.print("비밀번호 : ");
+                String pwd = scan.next();
+                // addAccount 메소드 호출
+                boolean result = bs.addAccount(accountNum, pwd);
+                // 메소드랑 같은 타입 변수 = 컨트롤러객체.메소드(매개변수1, 매개변수2)
+                if (result) {
+                    System.out.println("[안내] 계좌 등록이 완료되었습니다.");
+                } else {
+                    System.out.println("[경고] 사용 가능한 구좌가 없습니다.");
+                }
+            } // if end
+            // 2번 선택
+            if (select == 2) {
+                System.out.println("--- 입금 ---");
+                System.out.print("계좌번호 : ");
+                String accountNum = scan.next();
+                System.out.print("비밀번호 : ");
+                String pwd = scan.next();
+                System.out.print("입금액 : ");
+                int balance = scan.nextInt();
+                // pushMoney 메소드 호출
+                boolean result = bs.pushMoney(accountNum, pwd, balance);
+                if (result) {
+                    System.out.println("[안내] 입금이 완료되었습니다.");
+                } else {
+                    System.out.println("[경고] 계좌정보가 일치하지 않습니다.");
+                }
+
+            }   // if end
+
+            // 3번 선택
+            if (select == 3) {
+                System.out.println("--- 출금 ---");
+
+            }
+
+            // 4번 선택
+            if (select == 4) {
+                System.out.println("--- 잔고 확인 ---");
+
+
+            }
         }
+
+    }// main end
 
 
     /*
@@ -90,5 +150,5 @@ public class BankService {
             [경고] 잔액이 부족합니다.
 
      */
-    }   // main end
+
 }   // class end
