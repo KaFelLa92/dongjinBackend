@@ -1,5 +1,7 @@
 package day08;  // package name
 
+import java.util.Scanner;
+
 public class 실습9 {  // class s
     public static void main(String[] args) {    // main s
 
@@ -34,7 +36,7 @@ public class 실습9 {  // class s
         3. main 함수에서 (10, 5) 값을 가진 Rectangle 객체를 생성하고, getArea() 메소드를 호출하여 "사각형의 넓이: [넓이]"를 출력하세요.
 */
 
-        Rectangle r1 = new Rectangle(5 , 10);
+        Rectangle r1 = new Rectangle(5, 10);
         int result = r1.getArea();
         System.out.println("사각형의 넓이: " + result);
 
@@ -45,7 +47,7 @@ public class 실습9 {  // class s
         3. main 함수에서 ("111-222-3333", "유재석", 10000) 정보로 객체를 생성한 뒤, 5000원을 입금하고 3000원을 출금한 후의 최종 잔액을 출력하세요.
 */
 
-        BankAccount a1 = new BankAccount("123-123-1112" , "김이빨" , 100000);
+        BankAccount a1 = new BankAccount("123-123-1112", "김이빨", 100000);
         int addMoney = a1.deposit(20000);
         int drawMoney = a1.withdraw(120000);
         System.out.println(a1.ownerName + " 님의 현재 잔액은 " + a1.balance + "원 입니다.");
@@ -67,11 +69,22 @@ public class 실습9 {  // class s
         2. main 함수에서 new Member()로 객체를 생성하고, 초기화된 id와 isLogin 값을 출력하여 확인하세요.
 */
 
+        Member m1 = new Member("오홍홍햄빠끄", true);
+        System.out.println(m1.id + m1.isLogin);                 // 응 게스트 폴스야
+        Member m2 = new Member("난진짜관리자임", true);
+        System.out.println(m2.id + m2.isLogin);                 // 어림없지 게스트 폴스
+
+
         /*
 [문제 7] Television 클래스를 만드세요. (channel, volume 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
         1. channel과 volume을 매개변수로 받아 초기화하는 생성자를 만드세요.
         2. main 함수에서 (채널 7, 볼륨 20) 상태를 가진 Television 객체를 생성하고, 해당 객체의 정보를 출력하세요.
 */
+
+        // 채널 7 볼륨 20 객체 생성 후 출력
+        Television c7v20 = new Television(7, 20);
+        c7v20.TVOn();  // void로 저장한 출력 명령어 호출
+
 
         /*
 [문제 8] Player 클래스를 만드세요. (name, power, speed 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
@@ -80,11 +93,24 @@ public class 실습9 {  // class s
         3. 두 객체의 정보를 각각 출력하여 확인하세요.
 */
 
+        Player play1 = new Player("손흥민", 90, 95);
+        Player play2 = new Player("이강인", 85, 92);
+        play1.bringMePlayer();
+        play2.bringMePlayer();
+
+
+
         /*
 [문제 9] MenuItem 클래스를 만드세요. (name, price, isSignature 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
         1. 세 멤버 변수를 모두 초기화하는 생성자를 만드세요.
         2. main 함수에서 이 생성자를 사용하여 "김치찌개", 8000, true 정보를 가진 객체를 생성하고, isSignature가 true인지 확인한 후 "[대표메뉴] 김치찌개 : 8000원" 형식으로 출력하세요.
 */
+
+        MenuItem menu1 = new MenuItem("항정살김치찌개" , 11000 , true);
+        MenuItem menu2 = new MenuItem("미나리삼겹살" , 15000 , false);
+        menu1.heritageMenu();
+        menu2.heritageMenu();
+
 
         /*
 [문제 10] UserProfile 클래스를 만드세요. (name, age, mbti 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
@@ -93,5 +119,19 @@ public class 실습9 {  // class s
         3. 입력받은 값들을 사용하여 UserProfile 객체를 생성하고, 저장된 모든 정보를 출력하세요.
 */
 
+        
+        // 2. 스캐너 임포트
+        Scanner scan = new Scanner(System.in);
+
+        // 3. 객체 생성 및 출력(출력 void로 대체)
+        UserProfile user1 = new UserProfile("톰크루즈" , 63 , "ENTJ");
+        UserProfile user2 = new UserProfile("브래드피트" , 58 , "ESFJ");
+        UserProfile user3 = new UserProfile("디카프리오" , 45 , "INFJ");
+
+        user1.introduceMyself();
+        user2.introduceMyself();
+        user3.introduceMyself();
+
+        
     } // main e
 } // class e

@@ -1,4 +1,4 @@
-package 심화.과제;
+package 심화.과제1;
 
 public class BankService {
     public static void main(String[] args) {
