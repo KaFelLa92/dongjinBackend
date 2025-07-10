@@ -22,7 +22,6 @@ public class WaitingController {
                 return true;
             }
         } // for end
-
         return false; // for문에서 null 못찾으면 false
     }
 

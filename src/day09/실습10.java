@@ -1,9 +1,6 @@
 package day09;  // package name
 
 public class 실습10 { // class start
-
-
-
     public static void main(String[] args) {    // main start
 
         /*
@@ -77,6 +74,15 @@ public class 실습10 { // class start
         5. machine1으로 티켓 2장, machine2로 티켓 1장을 발권한 뒤, TicketMachine.printTotalTickets()를 호출하여 총 발권 수가 올바르게 나오는지 확인하세요.
 */
 
+        // 4. TicketMachine 객체 3개 생성
+        TicketMachine machine1 = new TicketMachine();
+        TicketMachine machine2 = new TicketMachine();
+        TicketMachine machine3 = new TicketMachine();
+        // 5. 티켓 발권 후 총 발권 수 확인
+        machine1.issueTicket();
+        machine1.issueTicket();
+        machine2.issueTicket();
+        TicketMachine.printTotalTickets();
 
 
         /*
@@ -87,6 +93,11 @@ public class 실습10 { // class start
         게임 이름 GAME_TITLE = "My RPG"
         2. main 함수에서 객체를 생성하지 않고, GameConfig.GAME_TITLE과 같이 클래스 이름으로 직접 접근하여 모든 설정 값을 출력하세요.
 */
+
+        System.out.println(GameConfig.GAME_TITLE);
+        System.out.println(GameConfig.MAX_HP);
+        System.out.println(GameConfig.MAX_LEVEL);
+
 
 
     }   // main end
