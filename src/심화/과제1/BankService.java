@@ -52,9 +52,9 @@ public class BankService {
                 System.out.print("비밀번호 : ");
                 String pwd = scan.next();
                 System.out.print("입금액 : ");
-                int balance = scan.nextInt();
+                int money = scan.nextInt();
                 // pushMoney 메소드 호출
-                boolean result = bs.pushMoney(accountNum, pwd, balance);
+                boolean result = bs.pushMoney(accountNum, pwd, money);
                 if (result) {
                     System.out.println("[안내] 입금이 완료되었습니다.");
                 } else {
@@ -66,7 +66,14 @@ public class BankService {
             // 3번 선택
             if (select == 3) {
                 System.out.println("--- 출금 ---");
-
+                System.out.print("계좌번호 : ");
+                String accountNum = scan.next();
+                System.out.print("비밀번호 : ");
+                String pwd = scan.next();
+                System.out.print("출금액 : ");
+                int money = scan.nextInt();
+                // pullMoney 메소드 호출
+                boolean result = bs.pullMoney(accountNum, pwd, money, balance);
             }
 
             // 4번 선택
