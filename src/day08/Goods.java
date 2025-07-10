@@ -1,6 +1,6 @@
 package day08;
 
-public class Goods {
+public class Goods {    // class start
     // 멤버변수 입력
     String name;
     int price;
@@ -18,4 +18,4 @@ public class Goods {
     }
 
 
-}
+} // class end

@@ -54,13 +54,24 @@ public class 실습9 {  // class s
 
         /*
 [문제 5] Goods 클래스를 만드세요. (name, price 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
+        *) 변수란? 하나의 자료를 저장(재사용)할 수 있는 메모리공간
+        *) 자바 변수 규칙 : 타입 변수명 = 자료
+        *) 타입 : 자료의 종류 , 기본자료형(8가지) vs 참조자료형
+
+
         1. Goods 클래스에 생성자를 두 개 만드세요(오버로딩).
         2. 기본 생성자: name은 "미정", price는 0으로 초기화
         3. 매개변수가 있는 생성자: name과 price를 매개변수로 받아 초기화
         4. main 함수에서 기본 생성자로 객체 하나, 매개변수가 있는 생성자로 ("콜라", 2000) 정보를 가진 객체 하나를 각각 생성하고, 두 객체의 정보를 모두 출력하세요.
 */
 
+        // new Goods은 기존의 자료형이 아니므로, 내가 만든 생성자 객체 Goods이 타입이다.
+        // 기본생성자 객체 생성
+        Goods p0 = new Goods();
+        // 매개변수 있는 생성자 생성
         Goods p1 = new Goods("콜라", 2000);
+        // 객체 하나씩 출력해보기
+        System.out.println(p0.name + " " + p0.price);
         System.out.println(p1.name + " " + p1.price);
 
         /*
@@ -69,11 +80,20 @@ public class 실습9 {  // class s
         2. main 함수에서 new Member()로 객체를 생성하고, 초기화된 id와 isLogin 값을 출력하여 확인하세요.
 */
 
+//        System.out.println(new Member("우라까이맨").id + new Member(true).isLogin); 이건 안됨.
         Member m1 = new Member("오홍홍햄빠끄", true);
         System.out.println(m1.id + m1.isLogin);                 // 응 게스트 폴스야
         Member m2 = new Member("난진짜관리자임", true);
         System.out.println(m2.id + m2.isLogin);                 // 어림없지 게스트 폴스
 
+        // 관례적/주로
+            // -> 서로 다른 타입 혹은 서로 다른 의미를 갖는 자료 또는 존재하지 않은 타입은 클래스 정의
+                // 예] Goods , Member 등 자바 회사에서 제공하지 않은 타입/클래스
+                // int, char, double, boolean, String , Scanner 등 자바 회사에서 제공하는 타입/클래스
+            // -> 같은 타입 혹은 같은 의미 갖는 자료는 배열 정의
+                // 예] 가격(int) 여러개 : int[] 가격목록 = new int[100];
+                // 가격(int) 재고(int) : class 제품정보{ int 가격; int 재고; }
+        
 
         /*
 [문제 7] Television 클래스를 만드세요. (channel, volume 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
