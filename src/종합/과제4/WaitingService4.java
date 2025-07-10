@@ -1,7 +1,54 @@
 package 종합.과제4; // package name
 
+import java.util.Scanner;
+
 public class WaitingService4 { // class start
     public static void main(String[] args) {    // main start
+        // 스캐너로 입력받기 (임포트할 것)
+        Scanner scan = new Scanner(System.in);
+
+        // (1) for (; ; ) 무한루프로 프로그램 실행
+        for (; ; ) {
+            System.out.println("=========== 맛집 대기 시스템 ===========");
+            System.out.println("1.대기 등록 | 2.대기 현황");
+            System.out.println("=====================================");
+            System.out.print("선택 > ");
+            int select = scan.nextInt();
+            // (1) 대기 등록
+            if (select == 1) {
+                scan.nextLine(); // 버그 방지용!
+                System.out.print("전화번호 : ");
+                String phone = scan.next();
+                System.out.print("인원 수 : ");
+                int count = scan.nextInt();
+                //  boolean check -> 객체 생성하지 않고 클래스에 직접 접근
+                boolean result = WaitingController.addWaiting(phone, count);
+                // boolean check true = result
+                if (result) {
+                    System.out.println("[안내] 대기 등록이 완료되었습니다.");
+                } else {
+                    System.out.println("[경고] 등록할 공간이 부족합니다.");
+                }
+
+            }
+            // (2) 대기 현황
+            if (select == 2) {
+                System.out.println("============= 대기 현황 =============");
+                // 객체 생성하지 않고  클래스에 직접 접근하여 배열 반환
+                Waiting[] waitings = WaitingController.getWaitingList();
+                // 반환받은 배열 for문으로 순회하며, Getter 메소드로 if ( wait != null ) 체크해서 출력
+                for (int i = 0; i <= waitings.length - 1; i++) {
+                    // 객체 Waiting의 변수 wait를 배열 인덱스에 넣기
+                    Waiting wait = waitings[i];
+                    if (wait != null) {
+                        System.out.println(i + 1 + ". 연락처 : " + wait.getPhone() + " - 인원 : " + wait.getCount() + "명");
+                        System.out.println("------------------------------------");
+                    }
+                } // for end
+            } // if end
+
+        }   // for never end
+
 
     } // main end
     /*
@@ -33,9 +80,7 @@ public class WaitingService4 { // class start
             - 반환받은 배열을 for문으로 순회하며, null이 아닌 요소의 정보를 Getter 메소드를 이용해 출력합니다.
      */
 
-    // 스캐너로 입력받기 (임포트할 것)
 
-    // (1) for (; ; ) 무한루프로 프로그램 실행
 
 
 
