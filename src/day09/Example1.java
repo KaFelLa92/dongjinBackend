@@ -35,7 +35,7 @@ public class Example1 { // class start  클래스명 앞에 접근 제한자 pub
                         -> System클래스 , String클래스 등등
                         * Scanner는 java.util
          [ getter and setter]
-            1. 정의 : 클래스내 private 멤버변수를 다른 클래스가 사용할 수 있도록 정의함
+            1. 정의 : 클래스내 private 멤버변수를 다른 클래스가 사용할 수 있도록 하는 정의함수.
             2. 관례적으로
                 1) 저장/대입 목적 : setter
                     public set멤버변수명( 타입 매개변수) {
@@ -60,6 +60,6 @@ public class Example1 { // class start  클래스명 앞에 접근 제한자 pub
         C c = new C();
 //      System.out.println(c.privateVariable);  // 오류발생
         System.out.println(c.methodReturn("123"));  // 가능. 공개 메소드로 상수화해서 불러올 수 있다.
-
+//      c.methodSave( 3); 오류발생
     }   // main end
 }   // class end

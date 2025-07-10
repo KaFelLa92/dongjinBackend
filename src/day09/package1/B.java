@@ -5,6 +5,6 @@ public class B {
         A a = new A();
         System.out.println(a.publicVariable); // 가능
 //      System.out.println(a.privateVariable); 불가능
-        System.out.println(a.normalVariable); // 가능. 같은 패키지라서.
+        System.out.println(a.normalVariable); // 가능. A와 B가 같은 패키지라서.
     }
 }
