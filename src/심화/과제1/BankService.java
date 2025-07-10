@@ -71,15 +71,32 @@ public class BankService {
                 System.out.print("비밀번호 : ");
                 String pwd = scan.next();
                 System.out.print("출금액 : ");
-                int money = scan.nextInt();
+                int balance = scan.nextInt();
                 // pullMoney 메소드 호출
-                boolean result = bs.pullMoney(accountNum, pwd, money, balance);
+                boolean result = bs.pullMoney(accountNum, pwd, balance);
+                if (result) {
+                    System.out.println("[안내] 입금이 완료되었습니다.");
+                } else {
+                    System.out.println("[경고] 잔액부족 또는 게좌정보가 일치하지 않습니다.");
+                }
             }
 
             // 4번 선택
             if (select == 4) {
                 System.out.println("--- 잔고 확인 ---");
-
+                // 객체 호출
+                Account[] accounts = new Account[100];
+                System.out.print("계좌번호 : ");
+                String accountNum = scan.next();
+                System.out.print("비밀번호 : ");
+                String pwd = scan.next();
+                // 객체 불러오기
+                int result = bs.balanceCheck(accountNum , pwd);
+                if( result >= 0) {
+                    System.out.println("[잔고] " + result + "원");
+                } else {
+                    System.out.println("[경고] 계좌정보가 일치하지 않습니다.");
+                }
 
             }
         }
