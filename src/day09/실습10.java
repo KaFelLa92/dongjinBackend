@@ -95,9 +95,8 @@ public class 실습10 { // class start
 */
 
         System.out.println(GameConfig.GAME_TITLE);
-        System.out.println(GameConfig.MAX_HP);
         System.out.println(GameConfig.MAX_LEVEL);
-
+        System.out.println(GameConfig.MAX_HP);
 
 
     }   // main end

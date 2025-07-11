@@ -2,8 +2,10 @@ package day09;
 
 public class TicketMachine {
 
-    // 1. static int totalTickets = 0; 정적 변수 선언
+    // 1. static int totalTickets = 0; 정적 변수 선언 (멤버변수 대체되었다)
     static int totalTickets = 0;
+    
+    // 생성자는 생략
     
     // 2. 호출 시 totalTickets += 1 시키는 issueTicket(){} 객체 메소드 만들기
     void issueTicket() {
