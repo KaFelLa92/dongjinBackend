@@ -3,7 +3,7 @@ package 종합.예제7.controller;
 import 종합.예제7.model.dao.BoardDao;
 import 종합.예제7.model.dto.BoardDto;
 
-// (역할) view와 model(dta, dao)의 중간제어
+// (역할) view와 model(dto, dao)의 중간제어
 public class BoardController {
     
     // Controller 싱글톤 만들기 (DTO 빼고는 다 싱글톤 필요하다니깐?)

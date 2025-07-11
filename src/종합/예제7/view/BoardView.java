@@ -70,7 +70,6 @@ public class BoardView { // class start
                 System.out.println("------------------------------------");
             }
         }
-
     } // func end
 
 
