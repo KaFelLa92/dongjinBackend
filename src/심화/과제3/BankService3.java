@@ -5,7 +5,7 @@ public class BankService3 { // class start
 
     } // main end
     /*
-    [JAVA] 심화과제3 : BankService 아래 실행예시를 참고하여 코드를 구현하시오. *미제출
+    [JAVA] 심화과제3 : BankService   아래 실행예시를 참고하여 코드를 구현하시오. *미제출
 [ 클래스 개수 ] : 4개 (Account, AccountLog, BankController, BankService )
 
 [ 계좌 최대 개수 ] : 100개

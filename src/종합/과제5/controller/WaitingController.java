@@ -11,7 +11,7 @@ public class WaitingController { // class start
     } // 1단계
 
     private static final WaitingController control = new WaitingController(); // 2단계
-
+    // control = 객체(instance)
     public static WaitingController getInstance() {
         return control; // 3단계
     } // func end

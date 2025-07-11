@@ -27,7 +27,7 @@ public class BankController {
     }
 
     // 2. 입금
-    // 매개변수 accountNum, pwd, int money, int money
+    // 매개변수 accountNum, pwd, int balance
     // 돈 넣으니까 int 메소드? 그냥 true false
 
     boolean pushMoney(String accountNum, String pwd, int balance) {
