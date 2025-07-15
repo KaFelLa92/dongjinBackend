@@ -6,11 +6,8 @@ import java.util.ArrayList;
 
 public class BoardDao {
     // 1) 싱글톤 세팅
-    private BoardDao() {
-    }
-
+    private BoardDao() {}
     public static final BoardDao instance = new BoardDao();
-
     public static BoardDao getInstance() {
         return instance;
     }
