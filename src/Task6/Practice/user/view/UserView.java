@@ -32,7 +32,7 @@ public class UserView {
                 insertUser();
             }
             if(select == 2){
-                getUserList();
+//                getUserList();
             }
         }
     }
@@ -44,6 +44,11 @@ public class UserView {
         String uname = scan.next();
         System.out.println("나이를 입력해달라구.");
         int uage = scan.nextInt();
+        System.out.println("성별을 입력해달라구. 1. 남성 | 2. 여성 | 3. 몰라잉");
+        int ugen = scan.nextInt();
+        System.out.println("");
     }
+
+    // 4) 전체조회 입출력 구현
 
 }
