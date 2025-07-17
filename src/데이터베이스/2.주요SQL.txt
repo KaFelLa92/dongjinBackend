@@ -8,13 +8,16 @@
     - 주의할점
         1) SQL 대소문자를 구분하지 않는다.
         2) SQL 명령어 문장 끝에 (;)으로 마무리한다.
+
     [0] 메타데이터 관리어
         1. show
             1) show databases;                  : DB서버내 전체 DB 목록 조회
             2) show variables like 'datadir'    : DB서버내 LOCAL PATH 조회
             3) show tables;                     : *활성화*중인 DB내 모든 테이블 조회
+
         2. use
             1) use DB명;                         : DB서버내 지정한 DB 활성화(사용)
+
     [1] DB 정의 : DDL
         1. create
             1) create database DB명;             : 지정한 DB 생성
@@ -22,12 +25,47 @@
                   속성명1 타입 제약조건 ,
                   속성명2 타입 제약조건
                );
+
         2. drop
             1) drop database DB명;               : 지정한 DB 삭제
             2) drop database if exists DB명;     : 만약 지정한 DB 존재하면 삭제
             3) drop table 테이블명;               : 지정한 테이블 삭제
             4) drop table if exists 테이블명;     : 만약에 지정한 테이블 존재하면 삭제
-            5)
+
+    [2] DB 조작어 : DML * 키워드/문법에 관한 대소문자 구분 없음. *이 파트는 암기해라*
+        1. INSERT
+            1) 특정 속성에 값 대입하여 레코드 추가
+                insert into 테이블명( 속성명1 , 속성명2 ) values ( 값1, 값2 );
+            2) 모든 속성에 값 대입하여 레코드 추가 , 속성명 생략(단 속성명 순서)
+                insert into 테이블명 values( 값1, 값2 );
+            3) 하나의 insert로 여러개의 레코드를 추가
+                insert into 테이블명 values( 값1, 값2 ) , ( 값1, 값2 ) , ( 값1, 값2 );
+                - 주의할점 : 각 속성의 제약조건에 따라 적절하게 값 대입
+
+        2. SELECT
+            1) 전체 속성에 레코드 조회 , *(와일드카드)
+                select * from 테이블명;
+            2) 특정 속성에 레코드 조회
+                select 속성명1 , 속성명2 from 테이블명
+            3) 특정 속성 조건에 따른 레코드 조회
+                select * from 테이블명 where [조건절]
+
+        3. UPDATE
+        MySQL Workbench에서는 수정/삭제를 safe mode이므로 불가능
+        safe mode 해제 : set SQL_SAFE_UPDATES = 0 VS 1은 세이프모드 구동
+        set SQL_SAFE_UPDATES = 0;
+            1) 전체 레코드의 속성값 수정
+                update 테이블명 set 속성명 = 새로운값;
+            2) 특정 속성 조건에 따른 레코드의 속성값 수정
+                update 테이블명 set 속성명 = 새로운값 where [조건절];
+            3) 다수 속성값 수정
+                update 테이블명 set 속성명 = 새로운값 , 속성명 = 새로운값 where [조건절];
+
+        4. DELETE
+            1) 전체 레코드 삭제
+                delete from 테이블명;
+            2) 특정 속성 조건에 따른 레코드 삭제
+                delete from 테이블명 where [조건절];
 
 [ 데이터타입 ] : 테이블내 속성들이 갖는/저장하는 자료들의 분류/타입/종류
     1. 정수
