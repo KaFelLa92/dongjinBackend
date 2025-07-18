@@ -139,7 +139,11 @@ select sum( stock ) as 소설재고수량 from books where genre = '소설';
 -- [문제 14] orders 테이블에서 고객별로 첫 주문일과 마지막 주문일을 조회하세요.
 -- [문제 15] orders 테이블에서 도서별 평균 주문 수량을 조회하세요.
 -- [문제 16] books 테이블에서 장르별 평균 가격이 18000원을 초과하는 장르와 그 평균 가격을 조회하세요.
+
 -- [문제 17] orders 테이블에서 2023년 1분기(1월~3월)에 발생한 총 주문 수량을 조회하세요. (BETWEEN 사용)
+-- 테이블 : orders 조건절 : order_date between 2023-01-01 to 2023-03-31 조회할 것 : sum( order_qty )
+select sum(order_qty) from orders where order_date between '2023-01-01' and '2023-03-31';
+
 -- [문제 18] orders 테이블에서 가장 다양한 종류의 책을 주문한 고객의 이름과 그 종류의 수를 조회하세요.
 -- [문제 19] books 테이블에서 각 장르별로 가장 저렴한 도서의 가격을 조회하세요.
 -- [문제 20] orders 테이블에서 주문을 단 한 번만 한 고객을 조회하세요. (조회결과: 0개 레코드)
