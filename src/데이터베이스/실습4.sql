@@ -133,17 +133,36 @@ select max(price) as 최고가 from books group by genre having genre = '컴퓨�
 select sum( stock ) as 소설재고수량 from books where genre = '소설';
 
 -- [문제 13] orders 테이블에서 주문을 한 고객이 총 몇 명인지 조회하세요. (DISTINCT 사용) 찾을 거를 중복 합쳐버리기
--- 테이블 : orders , distinct customer ,
-
+-- 테이블 : orders , 고객 중복 합치기 : distinct customer , 조회할 거 : count (distinct customer)
+select count(distinct customer) as 고객수 from orders;
 
 -- [문제 14] orders 테이블에서 고객별로 첫 주문일과 마지막 주문일을 조회하세요.
+-- 테이블 : orders , 그룹화 : customer 조회할 거 고객별, 주문일 : order_date , 첫 주문일 : asc limit 1 , 마지막 주문일 desc limit 1 
+-- select customer, order_date from orders order by order_date asc limit 2;
+-- select customer, order_date from orders order by order_date desc limit 2;
+-- min max로 대체하고 그룹바이 커스토머로 마무리
+select customer, min(order_date), max(order_date) from orders group by customer;
+
 -- [문제 15] orders 테이블에서 도서별 평균 주문 수량을 조회하세요.
+-- 테이블 : orders , 조회할 거 : avg( order_qty)
+select avg(order_qty) from orders;
+
 -- [문제 16] books 테이블에서 장르별 평균 가격이 18000원을 초과하는 장르와 그 평균 가격을 조회하세요.
+-- 테이블 : books , 조회할 거 : genre , avg(price) , 조건 : price > 18000 , 그룹화해서 조건절 해빙
+select genre , avg(price) from books group by genre having avg(price) > 18000;
 
 -- [문제 17] orders 테이블에서 2023년 1분기(1월~3월)에 발생한 총 주문 수량을 조회하세요. (BETWEEN 사용)
 -- 테이블 : orders 조건절 : order_date between 2023-01-01 to 2023-03-31 조회할 것 : sum( order_qty )
 select sum(order_qty) from orders where order_date between '2023-01-01' and '2023-03-31';
 
 -- [문제 18] orders 테이블에서 가장 다양한 종류의 책을 주문한 고객의 이름과 그 종류의 수를 조회하세요.
+-- 테이블 orders , 조건 : count(book_id) 찾을 거 : customer , count(book_id) , 그룹 커스토머 , 리미트 1로 한 명 출력
+select customer , count(book_id) from orders group by customer having count(book_id) limit 1;
+
 -- [문제 19] books 테이블에서 각 장르별로 가장 저렴한 도서의 가격을 조회하세요.
+-- 테이블 books , 찾을 거 : genre , min(price) 그룹 : genre
+select genre , min(price) as 저렴이 from books group by genre;
+
 -- [문제 20] orders 테이블에서 주문을 단 한 번만 한 고객을 조회하세요. (조회결과: 0개 레코드)
+-- 테이블 : orders , 조건 : order_id = 1 , 찾을 거 : customer
+select customer , count(order_id) from orders group by customer having count(order_id) = 1;
