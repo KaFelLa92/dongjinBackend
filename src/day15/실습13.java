@@ -3,6 +3,7 @@ package day15;
 // 1-1. 추상 메소드를 가진 사운드에이블 인터페이스 정의
 interface Soundable {
     void makeSound();   // 소리를 냅니다.
+    // default 넣으면 중괄호 쓸 수 있음.
 }
 
 // 1-2. 인터페이스 임플리케이트하는 캣, 도그 클래스 만들기
@@ -24,10 +25,10 @@ class Dog implements Soundable {
 // 2-1. 리모트컨트롤 인터페이스
 
 interface RemoteControl {
-    // 2-2. 인터페이스 안에 상수 정의/
+    // 2-2. 인터페이스 안에 상수 정의
     public static final int MAX_VOLUME = 10;
     public static final int MIN_VOLUME = 0;
-
+    // public static final은 생략 가능.
 }
 
 // 3-1. 추상메소드 run()가진 런에이블 인터페이스 정의
@@ -184,10 +185,13 @@ public class 실습13 {
         cat.makeSound();            // 야옹. 클래스 타입 호출
         dog.makeSound();            // 멍멍. 클래스 타입 호출
 
+        new Cat().makeSound();      // 재사용은 안 되지만 메소드 인스턴스 호출 가능
+        new Dog().makeSound();      // 재사용은 안 되지만 메소드 인스턴스 호출 가능22
+
         // 구현은 하나의 리모콘으로 삼성 QLED, LG 스탠바이미의 전원을 킬 수 있는 것과 같은 방식.
 
             /*
-            [문제 2] 인터페이스 상수
+            [문제 2] 인터페이스 상수 : 프로그램내 고정값 ( static : 객체 없이 사용하는 [정적]변수 ) (final : 초기화 이후 수정 불가능)
             1. RemoteControl 인터페이스를 만드세요.
             2. 이 인터페이스 안에, public static final로 최대 볼륨 MAX_VOLUME = 10과 최소 볼륨 MIN_VOLUME = 0 상수를 정의하세요.
             3. main 함수에서 객체를 생성하지 않고, RemoteControl.MAX_VOLUME과 같이 인터페이스 이름으로 직접 접근하여 두 상수를 출력하세요.

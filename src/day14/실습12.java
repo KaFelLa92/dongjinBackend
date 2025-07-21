@@ -22,7 +22,7 @@ class Animal {
 
 // 2-2. 동물 클래스를 상속받고 메소드를 재정의하는 야옹이 클래스 만들기
 class Cat extends Animal {
-    void makeSound() {
+    void makeSound() {  // 오버라이딩 조건 : 부모타입 메소드명의 선언부를 동일하게 만들기. 매개변수로 int a 등을 넣으면 오버로드가 됨.
         System.out.println("고양이가 야옹하고 웁니다.");
     }
 }
@@ -178,7 +178,7 @@ public class 실습12 {
 */
 
         // 1-3. 학생 객체 생성 후 상속받은 이름과 학생아이디에 값 저장후 출력
-        student stu1 = new student();
+        student stu1 = new student();   // 타입 변수 = 인스턴스/객체 생성
         stu1.name = "김봉팔";
         stu1.studentId = 12;
         System.out.println(stu1.name + "은 우리 반 " + stu1.studentId + "번이다.");
@@ -192,7 +192,9 @@ public class 실습12 {
 
         // 2-3. 야옹이 객체 생성 후 메소드 호출하여 재정의된 내용 나오나 봅시다.
         Cat kitty = new Cat();
+        Animal nabi = new Cat();
         kitty.makeSound();  // 재정의된 야옹이 우는 거만 나옵니다.
+        nabi.makeSound();   // 애니멀 타입이지만 캣 인스턴스이기에, 오버라이딩된 고양이 야옹 소리가 나온다.
 
         /*
 [문제 3] 생성자 호출 순서
