@@ -1,8 +1,6 @@
 package day16;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.util.Scanner;
 
 public class 실습15 {
@@ -22,57 +20,59 @@ public class 실습15 {
 
         // 1-1. 파일아웃풋스트림 사용하여 스트링 경로 변수 생성 후, txt 파일 생성
         // 1-3. 이거는 트라이 캐치 문으로 가둬줘야함
-//        try {
-//            String path = "src/day16/diary.txt";
-//            FileOutputStream txt = new FileOutputStream(path);
-//            // 1-2. 스캐너로 txt 파일에 문자열 추가
-//            Scanner scan = new Scanner(System.in);
-//            System.out.print("일기장에 뭐라고 쓸까?");
-//            String today = scan.nextLine();
-//            // 문자열 바이트로 변환
-//            byte[] writeDiary = today.getBytes();
-//            // 바이트 내보내기
-//            txt.write(writeDiary);
-//
-//
-//
-//        /*
-//[문제 2] 파일에 작성된 일기 읽기
-//        1. FileInputStream을 사용하여 문제 1에서 생성한 src/diary.txt 파일을 읽어오세요.
-//        2. 읽어온 바이트 데이터를 String으로 변환하여 콘솔에 출력하세요.
-//*/
-//
-//            // 2-1. 파일인풋스트림으로 텍스트 파일 읽어오기
-//            FileInputStream read = new FileInputStream(path);
-//            // 2-2. 바이트 데이터를 String으로 변환 후 콘솔 출력
-//            // today로 일기장에 쓴 후, 저장할 byte 배열 선언
-//            byte[] inByte = new byte[(int) today.length()];
-//            // 바이트 읽어오기
-//            read.read(inByte);
-//            // 문자열 변환 후 출력
-//            String inStr = new String(inByte);
-//            System.out.println(inStr);
-//
-//
-//        /*
-//[문제 3] File 클래스로 파일 정보 확인하기
-//        1. File 객체를 src/diary.txt 경로로 생성하세요.
-//        2. .exists(), .getPath(), .getName(), .length() 메소드를 각각 사용하여 해당 파일의 존재 여부, 경로, 이름, 크기(바이트)를 출력하세요.
-//*/
-//
-//            // 3-1. File 객체를 다이어리 경로로 생성
-//            File file = new File(path);
-//
-//            // 3-2. 메소드 활용으로 존재여부, 경로, 이름, 크기(바이트) 확인 및 출력
-//            System.out.println(file.exists());
-//            System.out.println(file.getPath());
-//            System.out.println(file.getName());
-//            System.out.println(file.length());
-//
-//
-//        } catch (Exception e) {
-//            System.out.println("일기장 잃어버림");
-//        }
+        try {
+            String path = "src/day16/diary.txt";
+            FileOutputStream txt = new FileOutputStream(path);
+            // 1-2. 스캐너로 txt 파일에 문자열 추가
+            Scanner scan = new Scanner(System.in);
+            System.out.print("일기장에 뭐라고 쓸까?");
+            String today = scan.nextLine(); // "오늘 날씨는 맑았고, 자바 공부는 재미있다."
+            // 문자열 바이트로 변환
+            byte[] writeDiary = today.getBytes();
+            // 바이트 내보내기
+            txt.write(writeDiary);
+
+
+
+        /*
+[문제 2] 파일에 작성된 일기 읽기
+        1. FileInputStream을 사용하여 문제 1에서 생성한 src/diary.txt 파일을 읽어오세요.
+        2. 읽어온 바이트 데이터를 String으로 변환하여 콘솔에 출력하세요.
+*/
+
+            // 2-1. 파일인풋스트림으로 텍스트 파일 읽어오기
+            FileInputStream read = new FileInputStream(path);
+            // 2-2. 바이트 데이터를 String으로 변환 후 콘솔 출력
+            // today로 일기장에 쓴 후, 저장할 byte 배열 선언
+            byte[] inByte = new byte[(int) today.length()];
+            // 바이트 읽어오기
+            read.read(inByte);
+            // 문자열 변환 후 출력
+            String inStr = new String(inByte);
+            System.out.println(inStr);
+
+
+        /*
+[문제 3] File 클래스로 파일 정보 확인하기
+        1. File 객체를 src/diary.txt 경로로 생성하세요.
+        2. .exists(), .getPath(), .getName(), .length() 메소드를 각각 사용하여 해당 파일의 존재 여부, 경로, 이름, 크기(바이트)를 출력하세요.
+*/
+
+            // 3-1. File 객체를 다이어리 경로로 생성
+            File file = new File(path);
+
+            // 3-2. 메소드 활용으로 존재여부, 경로, 이름, 크기(바이트) 확인 및 출력
+            System.out.println(file.exists());
+            System.out.println(file.getPath());
+            System.out.println(file.getName());
+            System.out.println(file.length());
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println("파일을 찾을 수 없습니다!");
+        } catch (IOException e){
+            System.out.println("입출력 오류 발견!");
+        }
 
 
         /*
@@ -83,7 +83,7 @@ public class 실습15 {
 */
 
         // 4-1. 파일아웃풋스트림으로 메모장 파일 생성
-        /*
+
         try {
             String path = "src/day16/visit_log.txt";
             FileOutputStream visit = new FileOutputStream(path , true); // true 설정하면 배열처럼 쌓을 수 있음
@@ -99,6 +99,7 @@ public class 실습15 {
             visit.write(outByte);
             // (3) 파일 존재여부 확인
             File file = new File(path);
+            System.out.println(file.exists());
             // (4) 파일 존재하면 파일 읽어오기
             if(file.exists()){
                 FileInputStream fin = new FileInputStream(path);
@@ -112,7 +113,7 @@ public class 실습15 {
         } catch (Exception e){
             System.out.println("방문자 기록을 열람할 수 없습니다.");
         }
-*/
+
 
         /*
 [문제 5] 연락처를 CSV 형식으로 파일에 저장하기
@@ -121,7 +122,7 @@ public class 실습15 {
         3. 해당 문자열을 contacts.csv 파일에 저장하세요. (줄바꿈 문자 \n 포함)
 */
 
-        /*
+
         try {
 
             // 5-1. 스캐너로 이름, 전화번호, 도시 입력받기
@@ -174,7 +175,7 @@ public class 실습15 {
             System.out.println("파일을 저장할 수 없습니다.");
         }
 
-         */
+
 
         /*
 [문제 6] 영화 감상평을 파일에 저장하기
@@ -182,7 +183,7 @@ public class 실습15 {
         2. 입력받은 내용을 src 폴더 내의 src/movie_review.txt 파일에 저장하세요.
 */
 
-/*
+
         try {
             // 6-1. 스캐너로 영화제목, 감상평 한 줄로 입력받기
             Scanner scan = new Scanner(System.in);
@@ -200,7 +201,7 @@ public class 실습15 {
             byte[] bytes = cinefill.getBytes();
             fout.write( bytes );
 
-*/
+
 
 
         /*
@@ -210,7 +211,7 @@ public class 실습15 {
         3. 읽어온 내용을 콘솔에 출력하세요.
 */
 
-        /*
+
         // (2) 파일로부터 텍스트 호출
         File file = new File(path);
 
@@ -231,7 +232,7 @@ public class 실습15 {
         System.out.println("저장할 수 없습니다.");
     }
 
-*/
+
 
         /*
 [문제 8] 공공데이터 CSV 파일 읽고 분석하기
