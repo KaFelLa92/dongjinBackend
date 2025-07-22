@@ -9,6 +9,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,9 +61,30 @@ public class WaitingDao {
         }
     }
 
+    // (*) DB 연동 정보
+
     // (*) DB 연동 함수
+    public void connectDB() {
+        // mysql 드라이버 클래스 로드
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("JDBC 드라이버 로드 성공");
+            String db_url = "jdbc:mysql://localhost:3306/waitingList";
+            String db_user = "root";
+            String db_password = "1234";
+            Connection conn = DriverManager.getConnection(db_url, db_user, db_password);
+            System.out.println("DB 연동 성공");
 
+            String sql = "insert into list(number , count) values('010-1234-5678' , '3')";
+            PreparedStatement ps = conn.prepareStatement( sql );
+            ps.execute();
 
+        } catch (ClassNotFoundException e) {
+            System.out.println("드라이버 로드 실패");
+        } catch (SQLException e) {
+            System.out.println("DB 연동 실패");
+        }
+    }
 
 
     // 2. CSV 입력 함수
@@ -96,7 +121,7 @@ public class WaitingDao {
             // outData를 CSV 내보내기
             csvWriter.writeAll(outData);
             csvWriter.close(); // 객체 닫기
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     } // func end
