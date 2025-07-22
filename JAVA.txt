@@ -309,10 +309,10 @@
         단계1) 지정한 클래스에 기본 생성자를 private한다.
             private 생성자명(){}
         단계2) 지정한 클래스에 private static final으로 객체(인스턴스) 선언한다.
-            private static final 클래스명 변수명 = new 생성자명();
+            private static final 클래스명 instance = new 생성자명();
         단계3) 지정한 클래스에 public static으로 getInstance 메소드 선언한다
             public static 클래스명 getInstance() {
-                return 변수명;
+                return instance;
             }
     4. 다른 클래스에서 싱글톤 호출하기.
         클래스명.getInstance();
