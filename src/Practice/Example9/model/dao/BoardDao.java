@@ -14,6 +14,8 @@ import java.util.List;
 public class BoardDao {
     // (*) 싱글톤 생성
     private BoardDao() {
+        // 연동 함수 생성자에 넣기
+        openCSV();
     }
 
     public static final BoardDao instance = new BoardDao();
@@ -28,7 +30,7 @@ public class BoardDao {
     // (1) 등록
     public boolean boardWrite(BoardDto boardDto) {
         boardDB.add(boardDto);
-        // CSV 저장해야 csv 파일(예제에서는 텍스트형식) 저장됨
+        saveCSV(); // CSV 저장해야 csv 파일(예제에서는 텍스트형식) 저장됨
         return true;
     } // func end
 
@@ -44,7 +46,7 @@ public class BoardDao {
     public void openCSV() {
         File file = new File(path); // 파일 객체 생성
         if (file.exists()) {       // 파일 존재하면 정보 불러오기.
-            // loadCSV(); 호출
+            loadCsv(); // loadCSV(); 호출
         } else {                    // 파일 없으면 파일 생성.
             try {
                 file.createNewFile();
