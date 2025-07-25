@@ -95,3 +95,5 @@ INSERT INTO inquiry(icontent, idate, iaka, ipwd, pno) VALUES ('A/S 가능한가�
 
 select * from product;
 select * from inquiry;
+
+update product set pname = "조금부서진청자" , pcontent = "오히려 상품 가치가 올라갔습니다." , pprice = 15000000 , pboolean = false where pno = 1 and ppwd = "pinemokpo";
