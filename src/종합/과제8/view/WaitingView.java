@@ -74,7 +74,7 @@ public class WaitingView {
 
     // (2) 조회 화면 구현
     public void waitPrint() {
-        // 1. 컨트롤러에게 doa 전달 후 리턴값 저장하기
+        // 1. 컨트롤러에게 전달 후 리턴값 저장하기
         ArrayList<WaitingDto> result = waitingController.waitPrint();
         // 2. 화면 구현
         System.out.println("대기순서 \t 전화번호 \t 인원 수"); // 표 상단 인덱스

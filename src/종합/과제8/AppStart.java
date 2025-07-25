@@ -15,13 +15,13 @@ public class AppStart {
 //        System.out.println( result );
         
         // 전체조회 테스트 (성공)
-//        ArrayList<WaitingDto> result2 = WaitingController.getInstance().waitPrint();
-//        System.out.println(result2);
+        ArrayList<WaitingDto> result2 = WaitingController.getInstance().waitPrint();
+        System.out.println(result2);
         
         // 취소 테스트 (패스)
         
         // (*) 메인화면 호출
-        WaitingView.getInstance().index();
+//        WaitingView.getInstance().index();
 
     } // main end
 } // class end

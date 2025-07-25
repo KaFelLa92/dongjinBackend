@@ -49,6 +49,17 @@ public class ProductDto {
         this.ppwd = ppwd;
     }
 
+    // 2-5) 전체조회용 생성자
+    public ProductDto(int pno, String pname, String pcontent, int pprice, boolean pboolean, String pdate, String paka) {
+        this.pno = pno;
+        this.pname = pname;
+        this.pcontent = pcontent;
+        this.pprice = pprice;
+        this.pboolean = pboolean;
+        this.pdate = pdate;
+        this.paka = paka;
+    }
+
     // 3. 메소드 (getter and setter , toString)
     public int getPno() {
         return pno;
