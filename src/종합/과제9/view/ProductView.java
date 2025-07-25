@@ -21,7 +21,7 @@ public class ProductView {
     public void index() {
         for (; ; ) {
             try {
-                home: System.out.println("================  가장 빠른 중고시장 뚝딱마켓  홈 화면 ================");
+                home: System.out.println("================  가장 빠른 중고시장 뚝딱마켓 홈 화면 ================");
                 System.out.println("1. 중고물품등록 | 2. 물품목록조회 | 3. 등록랭킹조회 | 4. 검색조회 | 5. 앱 종료");
                 System.out.println("==================================================================");
                 int select1 = scan.nextInt();
