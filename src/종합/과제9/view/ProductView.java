@@ -52,7 +52,7 @@ public class ProductView {
                         } else if (select3 == 2) {
                             productUpdate();
                         } else if (select3 == 3) {
-                            // productDelete()
+                            productDelete();
                         } else if (select3 == 4) {
                             continue;
                         } else {
@@ -177,5 +177,31 @@ public class ProductView {
             System.out.println("[경고] 물품번호가 없거나 비밀번호 오류입니다.");
         }
     } // func end
+    
+    // (4) 물품 삭제 화면 구현
+    /*
+        1. 물품 상세 화면에서 물품번호 및 비밀번호를 입력한다.
+    2. 성공하면 DB의 해당 레코드를 영구 삭제한다.
+    3. 매개변수
+    int pno
+    String ppwd
+    4. boolean 타입 반환
+     */
+    public void productDelete(){
+        // 1. 입력 받기
+        scan.nextLine(); // 버퍼 방지
+        System.out.print("삭제할 물품 번호 입력>");
+        int pno = scan.nextInt();
+        System.out.print("비밀번호 : ");
+        String ppwd = scan.next();
+        // 2. 컨트롤러 전달 후 리턴값 저장
+        boolean result = productControl.productDelete(pno , ppwd);
+        // 3. 리턴값 따른 출력
+        if (result){
+            System.out.println("[안내] 물품 삭제 완료");
+        } else {
+            System.out.println("[경고] 물품번호가 없거나 비밀번호 오류입니다.");
+        }
+    }
 
 } // class end

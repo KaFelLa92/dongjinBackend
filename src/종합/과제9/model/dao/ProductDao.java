@@ -190,16 +190,16 @@ public class ProductDao {
         return false;
     } // func end
 
-    // (*) pno와 비밀번호 체크(조회) 메소드
-    public boolean checkProduct(ProductDto productDto) { // 유효성 검사
+    // (*) pno와 비밀번호 체크(조회) 메소드. 수정과 삭제에서 활용
+    public boolean checkProduct(int pno , String ppwd) { // 유효성 검사
         try{
             // 1. SQL 작성
             String sql = "select * from product where pno = ? and ppwd = ?";
             // 2. SQL 기재
             PreparedStatement ps = conn.prepareStatement(sql);
             // 3. SQL 매개변수 대입
-            ps.setInt(1, productDto.getPno());
-            ps.setString(2, productDto.getPpwd());
+            ps.setInt(1, pno);
+            ps.setString(2, ppwd);
             // 4. SQL 실행
             ResultSet rs = ps.executeQuery();
             // 5. SQL 결과 확인

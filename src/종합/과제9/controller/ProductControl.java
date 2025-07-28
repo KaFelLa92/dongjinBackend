@@ -60,7 +60,7 @@ public class ProductControl {
      */
     public boolean productUpdate(String pname , String pcontent , int pprice , boolean pboolean , int pno , String ppwd ){
         // 1. 유효성 검사
-        boolean isValid = productDao.checkProduct(pno , ppwd);
+        boolean isValid = productDao.checkProduct(pno, ppwd);
         if(!isValid){
             return false;
         }
@@ -79,10 +79,16 @@ public class ProductControl {
     String ppwd
     4. boolean 타입 반환
      */
-    public boolean productDelete(){
-
-
-        return true;
+    public boolean productDelete(int pno, String ppwd){
+        // 1. 유효성검사
+        boolean isValid = productDao.checkProduct(pno , ppwd);
+        if (!isValid) {
+            return false;
+        }
+        // 2. Dao에 삭제 요청 -> 객체화를 매개변수에서 처리
+        boolean result = productDao.productDelete(new ProductDto(pno, ppwd));
+        // 3. 결과 반환
+        return result;
     }
 
 }
