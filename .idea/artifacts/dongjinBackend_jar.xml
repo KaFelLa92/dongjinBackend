@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="dongjinBackend:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/dongjinBackend_jar</output-path>
+    <root id="archive" name="dongjinBackend.jar">
+      <element id="module-output" name="dongjinBackend" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Practice/Example10/resource/mysql-connector-j-9.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/day17/opencsv-2.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/종합/과제8/resource/mysql-connector-j-9.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/종합/과제9/resource/mysql-connector-j-9.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/day17/mysql-connector-j-9.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/종합/예제10/resource/mysql-connector-j-9.3.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

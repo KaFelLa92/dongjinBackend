@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dongjinBackend">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/dongjinBackend_jar/dongjinBackend.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
